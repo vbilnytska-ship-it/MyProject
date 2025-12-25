@@ -1,49 +1,33 @@
+package app;
 
 
 public class Main {
 
-    static String productName;
-    static int quantity;
-    static double price;
-    static int days;
-
-    static double totalSales;
-    static double salesByDay;
-
-    private static final String CURRENCY = "EUR";
-
     public static void main(String[] args) {
 
-        // Товар 1
-        productName = "smartphone";
-        quantity = 5;
-        price = 2430.68;
-        days = 5;
+        // Змінна для збереження суми доходу
+        double income = 10000;
 
-        totalSales = quantity * price;
-        salesByDay = totalSales / days;
+        // Змінна для збереження суми податку
+        double tax;
 
-        System.out.printf(
-                "Product No 1: %s,%n" +
-                        "total sales for %d days is %s %.2f,%n" +
-                        "sales by day is %s %.2f.%n",
-                productName, days, CURRENCY, totalSales, CURRENCY, salesByDay
-        );
+        // Якщо дохід менший або дорівнює 10000
+        // податок становить 2,5%
+        if (income <= 10000) {
+            tax = income * 0.025;
 
-        // Товар 2
-        productName = "laptop";
-        quantity = 7;
-        price = 1498.12;
-        days = 7;
+            // Якщо дохід більший за 10000, але не перевищує 25000
+            // податок становить 4,3%
+        } else if (income <= 25000) {
+            tax = income * 0.043;
 
-        totalSales = quantity * price;
-        salesByDay = totalSales / days;
+            // Якщо дохід більший за 25000
+            // податок становить 6,7%
+        } else {
+            tax = income * 0.067;
+        }
 
-        System.out.printf(
-                "Product No 2: %s,%n" +
-                        "total sales for %d days is %s %.2f,%n" +
-                        "sales by day is %s %.2f.%n",
-                productName, days, CURRENCY, totalSales, CURRENCY, salesByDay
-        );
+        System.out.println("Income = " + income);
+        System.out.println("Tax = " + tax);
     }
 }
