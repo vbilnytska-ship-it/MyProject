@@ -1,26 +1,24 @@
 package app;
 
 public class Main {
-
     public static void main(String[] args) {
 
-        Shape[] shapes = new Shape[] {
-                new Circle(5),
-                new Square(4),
-                new Triangle(6, 3)
-        };
+        ConsolePrinter printer = new ConsolePrinter();
 
-        double totalArea = calculateTotalArea(shapes);
-        System.out.println("Сумарна площа всіх фігур: " + totalArea);
-    }
+        // звичайне повідомлення
+        ConsolePrinter.Message m1 =
+                new ConsolePrinter.Message("Привіт!", "Валерія");
 
-    public static double calculateTotalArea(Shape[] shapes) {
-        double sum = 0;
+        // анонімний відправник
+        ConsolePrinter.Message m2 =
+                new ConsolePrinter.Message("Таємне повідомлення", null);
 
-        for (Shape shape : shapes) {
-            sum += shape.getArea(); // поліморфізм
-        }
+        // пусте повідомлення
+        ConsolePrinter.Message m3 =
+                new ConsolePrinter.Message(null, null);
 
-        return sum;
+        printer.print(m1);
+        printer.print(m2);
+        printer.print(m3);
     }
 }
