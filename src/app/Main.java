@@ -9,3 +9,5 @@ public class Main {
         advisor.advise(Day.SUNDAY);
     }
 }
+
+
